@@ -1,3 +1,89 @@
-<div id="shopify-section-[id]" class="shopify-section">
-  <button>Valider</button>
+<header>
+<style>
+    .divContainer{
+        padding: 20px 20px;
+        display: flex;
+        justify-content: center;
+    }
+    button{
+        background-color: {{section.settings.background_color}};
+        
+        
+    }
+    .MediumSize{
+        width: 35%
+    }
+    .LargeSize{
+        width: 50%
+    }
+    a{
+        color: {{section.settings.font_color}} ;
+    }
+    button:hover{
+        background-color:  {{section.settings.background_color_hover}};
+        
+    }
+</style>
+</header>
+<div class="divContainer">
+    <button id="shopify-section-[id]" class="shopify-section  {% if section.settings.size == '10' %} MediumSize {% elsif section.settings.size == '20' %} LargeSize {% endif %}">
+        <a href="{{section.settings.url}}">{{section.settings.header}}</a>
+    </button>
 </div>
+
+
+{% schema %}
+  {
+    "name": "button",
+    "tag": "section",
+    "settings": [
+      {
+        "id": "header",
+        "type": "text",
+        "label": "Label",
+        "default": "Hello world"
+      },
+     {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#ffffff"
+       },
+       {
+        "type": "color",
+        "id": "background_color_hover",
+        "label": "Background color hover",
+        "default": "#ffffff"
+       },
+      {
+        "id": "url",
+        "type": "url",
+        "label": "Lien"
+      },
+      {
+        "type":      "select",
+        "id":        "size",
+        "label":     "Taille",
+        "options": [
+            {
+            "group": "value",
+            "value": "10",
+            "label": "Medium"
+            },
+            {
+            "group": "value",
+            "value": "20",
+            "label": "Large"
+            }
+        ]
+        },
+        {
+        "type": "color",
+        "id": "font_color",
+        "label": "Font color",
+        "default": "#ffffff"
+       }
+
+    ]
+  }
+{% endschema %}
