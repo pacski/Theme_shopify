@@ -1,0 +1,6 @@
+development:
+  password: eb2dc6556c826abea2f210b32be25a95
+  theme_id: "79270805575"
+  store: IIMCompany.myshopify.com
+  ignore_files: 
+    - config/settings_data.json
